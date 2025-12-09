@@ -1,0 +1,8 @@
+<div class="photo-booth-container">
+  <h1>Yahya's Photo Booth</h1>
+  <video #video autoplay playsinline></video>
+  <button (click)="capture()">Take Photo</button>
+</div>
+
+<canvas #canvas style="display: none;"></canvas>
+<img *ngIf="photo" [src]="photo" alt="captured" />

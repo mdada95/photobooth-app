@@ -1,0 +1,23 @@
+@use './functions.scss' as *;
+
+$title-font: (
+  family: cursive,
+  weight: 400,
+  style: normal,
+  size: px-to-rem(36),
+  line-height: 1.25
+);
+
+// Function to get font properties
+@function get-font($font-map, $property) {
+  @return map-get($font-map, $property);
+}
+
+// Mixin to apply full font
+@mixin apply-font($font-map) {
+  font-family: map-get($font-map, family);
+  font-weight: map-get($font-map, weight);
+  font-style: map-get($font-map, style);
+  font-size: map-get($font-map, size);
+  line-height: map-get($font-map, line-height);
+}

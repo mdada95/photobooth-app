@@ -1,0 +1,34 @@
+@use '../../../assets/scss/functions.scss' as *;
+@use '../../../assets/scss/fonts.scss' as *;
+
+.welcome-page-container-grid {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  grid-template-columns: 1fr;
+  height: 100vh;
+  width: 100%;
+}
+
+.welcome-page-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: px-to-rem(20);
+}
+
+.welcome-page-title-container {
+  text-align: center;
+  padding-bottom: px-to-rem(16);
+}
+
+.title {
+  @include apply-font($title-font);
+}
+
+.welcome-page-footer {
+  padding-left: px-to-rem(16);
+}
+
+.example-spacer {
+  flex: 1 1 auto;
+}
