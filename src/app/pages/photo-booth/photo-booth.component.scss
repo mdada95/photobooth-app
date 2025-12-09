@@ -1,0 +1,67 @@
+@use '../../../assets/scss/functions.scss' as *;
+
+.photo-booth-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  gap: px-to-rem(20);
+}
+
+video {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+  transform: scaleX(-1); // Mirror the video for a natural selfie effect
+}
+
+.photo-booth-controls {
+  background: transparent;
+  width: 100%;
+}
+
+.example-spacer {
+  flex: 1 1 auto;
+}
+
+.photo-preview-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100vh;
+  width: 100vw;
+  max-width: 100vw;
+}
+
+.photo-container {
+  width: 100vw;
+  aspect-ratio: 4 / 3; // Maintain a 4:3 aspect ratio for portrait photos
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.photo {
+  height: 100%;
+  width: 100%;
+  object-fit: contain;
+}
+
+.photo-actions-bar {
+  flex: 0 0 auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: px-to-rem(10);
+  padding: px-to-rem(10);
+}
+
+.retake-button {
+  color: blue !important;
+}
+
+.done-button {
+  color: brown !important;
+}
+

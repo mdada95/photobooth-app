@@ -1,0 +1,45 @@
+<div class="photo-booth-container">
+  <ng-container *ngIf="!(picturePreviewMode$ | async); else picturePreview">
+    <video #video autoplay playsinline></video>
+    <div class="photo-booth-controls"> 
+      <mat-toolbar>
+        <button mat-icon-button (click)="previewLibrary()">
+          <mat-icon>photo_library</mat-icon>
+        </button>
+        <span class="example-spacer"></span>
+        <button mat-icon-button (click)="capture()">
+          <mat-icon>photo_camera</mat-icon>
+        </button>
+        <span class="example-spacer"></span>
+        <button mat-icon-button (click)="flipCamera()">
+          <mat-icon>flip_camera_ios</mat-icon>
+        </button>
+      </mat-toolbar>
+    </div>
+  </ng-container>
+  <ng-template #picturePreview>
+    <div *ngIf="photo" class="photo-preview-container">
+      <!-- this section will have a header for retake and done selection -->
+      <div class="photo-actions-bar">
+        <button mat-button (click)="retake()" class="retake-button">Retake</button>
+        <button mat-button (click)="sendImageToDB()" class="done-button">Done</button>
+      </div>
+      <!-- the image preview will be displayed here -->
+      <div class="photo-container">
+        <img *ngIf="photo" [src]="photo" alt="captured" class="photo"/>
+      </div>
+      <!-- this section will have a button to download the image and to send it to the shared photo booth collection -->
+      <div class="photo-actions-bar">
+        <button mat-icon-button (click)="saveImage()">
+          <mat-icon>download</mat-icon>
+        </button>
+        <button mat-icon-button (click)="sendImageToDB()">
+          <mat-icon>send</mat-icon>
+        </button>
+      </div>
+    </div>
+  </ng-template>
+</div>
+
+
+<canvas #canvas style="display: none;"></canvas>
